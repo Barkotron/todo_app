@@ -1,4 +1,25 @@
 .sidebar {
-    border: dashed red 4px;
-    border-radius: 8px;
+    border: dashed red 2px;
+    border-radius: 16px;
+    max-width: 30%;
+    height:100%;
+    min-width: 16em;
+    padding: 4px;
+}
+
+.sidebar-menu-item {
+    display:flex;
+    flex-direction: row;
+    border: solid black 2px;
+    border-radius: 12px;
+    background-color: grey;
+    max-width: 100%;
+}
+
+.sidebar-menu-item p {
+    margin-left: 16px;
+}
+
+.sidebar-menu-item:hover{
+    color: blue;
 }
