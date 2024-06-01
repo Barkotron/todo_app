@@ -1,0 +1,11 @@
+
+
+.selected-task-wrapper{
+    border-radius: 16px;
+    border: pink dashed 2px;
+    width: 100%;
+}
+
+.selected-task {
+    margin-left: 16px;
+}

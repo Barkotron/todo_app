@@ -1,9 +1,9 @@
 import styles from "../styles/Sidebar.module.css";
-export default function SidebarItem({ children }) {
+export default function SidebarItem({ children, onClick }) {
 
   return (
-    <div className={styles["sidebar-menu-item"]}>
-      <p>{children} ^</p>
-    </div>
+    <button className={styles["sidebar-menu-item"]} onClick={onClick}>
+      <div className={styles["sidebar-menu-item-children"]}>{children} ^</div>
+    </button>
   );
 }

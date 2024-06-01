@@ -2,14 +2,20 @@ import { useState } from "react";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import styles from "./styles/App.module.css";
+import SelectedTask from "./components/SelectedTask";
+
+import { ACTIVE_TASKS } from "./data/dummy_tasks";
+import { COMPLETED_TASKS } from "./data/dummy_tasks";
 
 function App() {
-  const [activeTasks, setActiveTasks] = useState([{id: 1, title: "test title active!"},{id: 2,title: "test title active 2!"}]);
-  const [completedTasks, setCompletedTasks] = useState([{id: 3,title: "test title completed!"}, {id: 4,title: "test title completed 2!"}]);
-  const [selectedTask, setSelectedTask] = useState(undefined);
+  const [activeTasks, setActiveTasks] = useState(ACTIVE_TASKS);
+  const [completedTasks, setCompletedTasks] = useState(COMPLETED_TASKS);
+  const [selectedTask, setSelectedTask] = useState(ACTIVE_TASKS[0]);
 
   function handleAddTask(task) {
-    setActiveTasks((prevTasks) => prevTasks.push(task));
+    setActiveTasks((prevTasks) => {
+      return [task, ...prevTasks];
+    });
   }
 
   function handleRemoveTask(task) {
@@ -17,7 +23,9 @@ function App() {
     setActiveTasks((prevTasks) => prevTasks.filter((task) => true));
   }
 
-  function handleSelectTask() {}
+  function handleSelectTask(task) {
+    setSelectedTask(task);
+  }
 
   console.log("active", activeTasks);
   console.log("completed", completedTasks);
@@ -29,8 +37,11 @@ function App() {
         <Sidebar
           activeTasks={activeTasks}
           completedTasks={completedTasks}
+          selectedTask={selectedTask}
+          handleSelectTask={handleSelectTask}
+          handleAddTask={handleAddTask}
         ></Sidebar>
-        <p>TEST</p>
+        {selectedTask && <SelectedTask task={selectedTask}></SelectedTask>}
       </div>
     </div>
   );
