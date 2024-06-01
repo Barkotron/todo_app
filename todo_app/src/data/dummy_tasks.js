@@ -1,28 +1,28 @@
 export const ACTIVE_TASKS = [
   {
     id: 1,
-    title: "test title active!",
-    description: "Such description, wow!",
-    date: "some date",
+    title: "Create a shiny new ToDo app",
+    description: "Create a Todo app to practice React Skills",
+    date: "01-01-1990",
   },
   {
     id: 2,
-    title: "test title active 2!",
-    description: "Such description, wow!",
-    date: "some date",
+    title: "Style new Todo App",
+    description: "Make it look more gooder",
+    date: "12-31-2024",
   },
 ];
 export const COMPLETED_TASKS = [
   {
     id: 3,
-    title: "test title completed!",
-    description: "Such description, wow!",
-    date: "some date",
+    title: "Create Wage Timer app",
+    description: "Create app to show the things you could buy given how long you've worked",
+    date: "09-26-1994",
   },
   {
     id: 4,
-    title: "test title completed 2!",
-    description: "Such description, wow!",
-    date: "some date",
+    title: "Create Weather app",
+    description: "Create a weather app with real time weather data",
+    date: "03-11-1992",
   },
 ];

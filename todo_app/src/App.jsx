@@ -27,8 +27,8 @@ function App() {
     setSelectedTask(task);
   }
 
-  console.log("active", activeTasks);
-  console.log("completed", completedTasks);
+  //console.log("active", activeTasks);
+  //console.log("completed", completedTasks);
 
   return (
     <div className={styles["app-wrapper"]}>
