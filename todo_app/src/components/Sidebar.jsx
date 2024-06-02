@@ -25,7 +25,7 @@ export default function Sidebar({
     <div className={styles.sidebar}>
       <button onClick={() => testAddItem()}>+ Add test task</button>
       <SidebarItem listLength={activeTasks.length} onClick={() => setActiveVisible(!activeVisible)}>
-        Active Tasks
+        Active Tasks&nbsp;
       </SidebarItem>
       {activeVisible && (
         <SidebarTaskList
@@ -34,7 +34,7 @@ export default function Sidebar({
         ></SidebarTaskList>
       )}
       <SidebarItem listLength={completedTasks.length} onClick={() => setCompletedVisible(!completedVisible)}>
-        Completed Tasks
+        Completed Tasks&nbsp;
       </SidebarItem>
       {completedVisible && (
         <SidebarTaskList

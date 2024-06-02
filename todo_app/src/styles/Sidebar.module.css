@@ -14,9 +14,13 @@
   border-radius: 12px;
   background-color: grey;
   width: 100%;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .sidebar-menu-item-children {
+  display: flex;
+  flex-direction: row;
   margin-left: 16px;
   margin-left: auto;
   margin-right: auto;
