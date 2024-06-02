@@ -7,6 +7,14 @@ export default function SelectedTask({ task }) {
         <p>{task.description}</p>
         <p>{task.date}</p>
       </div>
+
+      <div className={styles["selected-task"]}>
+        {task.completed ? (
+          <button>Set Active</button>
+        ) : (
+          <button>Mark as Completed</button>
+        )}
+      </div>
     </div>
   );
 }
