@@ -8,7 +8,7 @@ export default function SidebarItem({ children, listLength, onClick }) {
         <motion.div
           key={listLength}
           animate={{ scale: [1, 1.2, 1] }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.25 }}
         >
           ({listLength})
         </motion.div>

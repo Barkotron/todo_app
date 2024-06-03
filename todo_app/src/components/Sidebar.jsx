@@ -24,7 +24,10 @@ export default function Sidebar({
   return (
     <div className={styles.sidebar}>
       <button onClick={() => testAddItem()}>+ Add test task</button>
-      <SidebarItem listLength={activeTasks.length} onClick={() => setActiveVisible(!activeVisible)}>
+      <SidebarItem
+        listLength={activeTasks.length}
+        onClick={() => setActiveVisible(!activeVisible)}
+      >
         Active Tasks&nbsp;
       </SidebarItem>
       {activeVisible && (
@@ -33,7 +36,10 @@ export default function Sidebar({
           handleSelectTask={handleSelectTask}
         ></SidebarTaskList>
       )}
-      <SidebarItem listLength={completedTasks.length} onClick={() => setCompletedVisible(!completedVisible)}>
+      <SidebarItem
+        listLength={completedTasks.length}
+        onClick={() => setCompletedVisible(!completedVisible)}
+      >
         Completed Tasks&nbsp;
       </SidebarItem>
       {completedVisible && (
