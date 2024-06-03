@@ -10,7 +10,7 @@ import { COMPLETED_TASKS } from "./data/dummy_tasks";
 function App() {
   const [activeTasks, setActiveTasks] = useState(ACTIVE_TASKS);
   const [completedTasks, setCompletedTasks] = useState(COMPLETED_TASKS);
-  const [selectedTask, setSelectedTask] = useState(ACTIVE_TASKS[0]);
+  const [selectedTask, setSelectedTask] = useState(undefined);
 
   function handleAddTask(task) {
     setActiveTasks((prevTasks) => {

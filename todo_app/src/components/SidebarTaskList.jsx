@@ -1,10 +1,10 @@
 import styles from "../styles/Sidebar.module.css";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const container = {
-  hidden: { opacity: 0 },
+
   show: {
-    opacity: 1,
+    opacity: [0,1],
     transition: {
       staggerChildren: 0.05,
     },
@@ -12,35 +12,34 @@ const container = {
 };
 
 const listItem = {
-  hidden: { opacity: 0, y: -30 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: [1,0], y: [0,-30] },
+  show: { opacity: [0,1], y: [-30,0] },
 };
 
 export default function SidebarTaskList({ tasks, handleSelectTask }) {
   return (
-    <AnimatePresence>
-      <motion.ul
-        variants={container}
-        initial="hidden"
-        animate="show"
-        exit="hidden"
-      >
-        {tasks.map((item) => (
-          <AnimatePresence>
-            <motion.li
-              variants={listItem}
-              transition={{ type: "spring", bounce: 0.3, duration: 0.65 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={styles["sidebar-menu-subitem"]}
-              key={item.title}
-              onClick={() => handleSelectTask(item)}
-            >
-              {item.title}
-            </motion.li>
-          </AnimatePresence>
-        ))}
-      </motion.ul>
-    </AnimatePresence>
+    <motion.ul
+      // key={"sidebarTaskList" + tasks}
+      variants={container}
+      initial="hidden"
+      animate="show"
+      exit="hidden"
+    >
+
+      {tasks.map((item) => (
+        <motion.li
+          layout
+          key={item.id}
+          variants={listItem}
+          transition={{ type: "spring", bounce: 0.3, duration: 0.65 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className={styles["sidebar-menu-subitem"]}
+          onClick={() => handleSelectTask(item)}
+        >
+          {item.title}
+        </motion.li>
+      ))}
+    </motion.ul>
   );
 }

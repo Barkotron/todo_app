@@ -5,8 +5,8 @@ export default function SelectedTask({ task }) {
     <div className={styles["selected-task-wrapper"]}>
       <motion.div
         key={"selectedTask" + task.title}
-        animate={{ opacity: [0, 1], filter: "blur(0px)", y: 0 }}
-        initial={{ opacity: [1, 0], filter: "blur(5px)", y: -30 }}
+        animate={{ opacity: [0, 1], filter: "blur(0px)"}}
+        initial={{ opacity: [1, 0], filter: "blur(5px)" }}
         //exit={{ opacity: [1, 0], x: [0, -100] }}
         transition={{ duration: 0.25 }}
       >

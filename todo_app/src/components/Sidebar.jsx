@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../styles/Sidebar.module.css";
 import SidebarItem from "./SidebarItem";
 import SidebarTaskList from "./SidebarTaskList";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Sidebar({
   activeTasks,
@@ -14,15 +15,15 @@ export default function Sidebar({
 
   function testAddItem() {
     handleAddTask({
-      id: 5,
-      title: "Some added Item",
+      id: Math.random() * 10000,
+      title: Math.floor(Math.random() * 1000),
       description: "Such description for NEW ITEM, wow!",
       date: "some NEW date, WOOWWW!!",
     });
   }
 
   return (
-    <div className={styles.sidebar}>
+    <motion.div className={styles.sidebar}>
       <button onClick={() => testAddItem()}>+ Add test task</button>
       <SidebarItem
         listLength={activeTasks.length}
@@ -30,24 +31,28 @@ export default function Sidebar({
       >
         Active Tasks&nbsp;
       </SidebarItem>
-      {activeVisible && (
-        <SidebarTaskList
-          tasks={activeTasks}
-          handleSelectTask={handleSelectTask}
-        ></SidebarTaskList>
-      )}
+      <AnimatePresence>
+        {activeVisible && (
+          <SidebarTaskList
+            tasks={activeTasks}
+            handleSelectTask={handleSelectTask}
+          ></SidebarTaskList>
+        )}
+      </AnimatePresence>
       <SidebarItem
         listLength={completedTasks.length}
         onClick={() => setCompletedVisible(!completedVisible)}
       >
         Completed Tasks&nbsp;
       </SidebarItem>
-      {completedVisible && (
-        <SidebarTaskList
-          tasks={completedTasks}
-          handleSelectTask={handleSelectTask}
-        ></SidebarTaskList>
-      )}
-    </div>
+      <AnimatePresence>
+        {completedVisible && (
+          <SidebarTaskList
+            tasks={completedTasks}
+            handleSelectTask={handleSelectTask}
+          ></SidebarTaskList>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
